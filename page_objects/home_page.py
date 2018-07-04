@@ -3,8 +3,6 @@ from project_page import ProjectPage
 
 
 class HomePage(BasePage):
-    # Now we go to project module
-
     #class
     project_loc = "projects"
 

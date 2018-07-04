@@ -13,18 +13,18 @@ CHROME_PATH = head + r"\drivers\chromedriver.exe"
 class RedmineTestScript(unittest.TestCase):
     base_url = get_property_file_value('URL')
     faker = Faker()
+
     def setUp(self):
         self.driver = webdriver.Chrome(executable_path=CHROME_PATH)
         self.driver.get(self.base_url)
         self.driver.maximize_window()
-        time.sleep(3)
+
     def test_success_loggin(self):
         user = get_property_file_value('user')
         password = get_property_file_value('password')
         login_po = LoginPage(self.driver)
         login_po.login_with(user, password)
-        time.sleep(10)
-        # TODO asserts
+        assert login_po.is_user_logged(user)
 
     def tearDown(self):
         self.driver.close()
@@ -33,7 +33,7 @@ class RedmineTestScript(unittest.TestCase):
         self.driver = webdriver.Chrome(executable_path=CHROME_PATH)
         self.driver.get(self.base_url)
         self.driver.maximize_window()
-        time.sleep(3)
+
 
     def test_success_project_creation(self):
         user = get_property_file_value('user')
