@@ -1,0 +1,1 @@
+Here are going to be screenshot from failed tests

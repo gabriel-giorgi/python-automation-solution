@@ -1,0 +1,1 @@
+Here are going to be screenshot from passed tests

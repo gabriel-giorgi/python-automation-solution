@@ -21,4 +21,5 @@ def step_impl(context, user, password):
 @then(u'I should see my username "{user}" logged in the homepage')
 def step_impl(context, user):
     assert context.login_po.is_user_logged(user)
-    print('gg')
+
+

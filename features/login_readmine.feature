@@ -2,6 +2,7 @@
 Feature: Login - Login test
   As a user I want to be able to login into the app.
 
+@Working
 Scenario Outline: Login into application
 Given I connect to redmine
 When I enter my username "<user>" and password "<password>"
