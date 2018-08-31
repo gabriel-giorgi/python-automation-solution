@@ -1,6 +1,5 @@
 import os
 import unittest
-import time
 from selenium import webdriver
 from faker import Faker
 from page_objects.login_page import LoginPage
