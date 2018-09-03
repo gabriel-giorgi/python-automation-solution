@@ -27,7 +27,6 @@ def step_impl(context):
 
     context.project_name = fake.name()
     table = table_to_dict(context.table)
-    print(table)
     context.project_po.go_to_create_new_project_form()
     context.project_po.fill_project_name(context.project_name)
     context.project_po.set_project_modules(table["issue_tracking"], table["time_tracking"], table["news"]

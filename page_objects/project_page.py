@@ -128,8 +128,6 @@ class ProjectPage(BasePage):
                 new_project_modules_rd_is_gantt_we.click();
             elif new_project_modules_rd_is_gantt_we.is_selected():
                 new_project_modules_rd_is_gantt_we.click();
-
-        sleep(20000)
         return self
 
     def create_project_and_continue(self):
