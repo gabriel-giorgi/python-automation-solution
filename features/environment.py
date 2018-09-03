@@ -3,7 +3,7 @@ import os
 import time
 
 head, tail = os.path.split(os.path.dirname(os.path.abspath(__file__)))
-CHROME_PATH = head + r"\drivers\chromedriver.exe"
+CHROME_PATH = head + r"\LFS\drivers\chromedriver.exe"
 
 
 def before_all(context):

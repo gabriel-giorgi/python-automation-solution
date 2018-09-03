@@ -3,6 +3,7 @@ fake = Faker()
 from behave import *
 import config_handler
 from config_handler import get_property_file_value
+from util import table_to_dict
 from login_page import LoginPage
 use_step_matcher("re")
 redmine_url = config_handler.get_property_file_value('URL')
@@ -23,13 +24,15 @@ def step_impl(context):
 
 @step("create a new project with following fields")
 def step_impl(context):
+
     context.project_name = fake.name()
-    print(str(context))
+    table = table_to_dict(context.table)
+    print(table)
     context.project_po.go_to_create_new_project_form()
     context.project_po.fill_project_name(context.project_name)
-    context.project_po.set_project_modules(context.row["issue_tracking"], context.row["time_tracking"], context.row["news"]
-                                           , context.row["documents"], context.row["files"], context.row["wiki"],
-                                           context.row["repository"], context.row["calendar"], context.row["gantt"])
+    context.project_po.set_project_modules(table["issue_tracking"], table["time_tracking"], table["news"]
+                                           , table["documents"], table["files"], table["wiki"],
+                                           table["repository"], table["calendar"], table["gantt"])
     context.project_po.create_project_and_continue()
 
 

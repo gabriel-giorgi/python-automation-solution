@@ -1,3 +1,5 @@
+from time import sleep
+
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
@@ -54,61 +56,80 @@ class ProjectPage(BasePage):
         project_name_txt_we.send_keys(projectname)
         return self
 
-    def set_project_modules(self, issue_tracking=None, time_tracking=None, news=None, documents=None, files=None,
-                            wiki=None, repository=None, calendar=None, gantt=None):
+    def set_project_modules(self, issue_tracking, time_tracking, news, documents, files,
+                            wiki, repository, calendar, gantt):
+        new_project_modules_rd_is_issue_tracking_we = self.driver.find_element_by_id(
+            self.new_project_modules_rd_is_issue_tracking_loc)
+        new_project_modules_rd_is_time_tracking_we = self.driver.find_element_by_id(
+            self.new_project_modules_rd_is_time_tracking_loc)
+        new_project_modules_rd_is_news_we = self.driver.find_element_by_id(self.new_project_modules_rd_is_news_loc)
+        new_project_modules_rd_is_documents_we = self.driver.find_element_by_id(
+            self.new_project_modules_rd_is_documents_loc)
+        new_project_modules_rd_is_files_we = self.driver.find_element_by_id(
+            self.new_project_modules_rd_is_files_loc)
+        new_project_modules_rd_is_wiki_we = self.driver.find_element_by_id(self.new_project_modules_rd_is_wiki_loc)
+        new_project_modules_rd_is_repositoy_we = self.driver.find_element_by_id(
+            self.new_project_modules_rd_is_repository_loc)
+        new_project_modules_rd_is_calendar_we = self.driver.find_element_by_id(
+            self.new_project_modules_rd_is_calendar_loc)
+        new_project_modules_rd_is_gantt_we = self.driver.find_element_by_id(
+            self.new_project_modules_rd_is_gantt_loc)
 
         if issue_tracking:
-            new_project_modules_rd_is_issue_tracking_we = self.driver.find_element_by_id(
-                self.new_project_modules_rd_is_issue_tracking_loc)
             if not new_project_modules_rd_is_issue_tracking_we.is_selected():
                 new_project_modules_rd_is_issue_tracking_we.click();
+        elif new_project_modules_rd_is_issue_tracking_we.is_selected():
+            new_project_modules_rd_is_issue_tracking_we.click();
 
         if time_tracking:
-            new_project_modules_rd_is_time_tracking_we = self.driver.find_element_by_id(
-                self.new_project_modules_rd_is_time_tracking_loc)
             if not new_project_modules_rd_is_time_tracking_we.is_selected():
-                new_project_modules_rd_is_time_tracking_we.click()
+                new_project_modules_rd_is_time_tracking_we.click();
+        elif new_project_modules_rd_is_time_tracking_we.is_selected():
+            new_project_modules_rd_is_time_tracking_we.click();
 
         if news:
-            new_project_modules_rd_is_news_we = self.driver.find_element_by_id(self.new_project_modules_rd_is_news_loc)
             if not new_project_modules_rd_is_news_we.is_selected():
-                new_project_modules_rd_is_news_we.click()
+                new_project_modules_rd_is_news_we.click();
+        elif new_project_modules_rd_is_news_we.is_selected():
+            new_project_modules_rd_is_news_we.click();
 
         if documents:
-            new_project_modules_rd_is_documents_we = self.driver.find_element_by_id(
-                self.new_project_modules_rd_is_documents_loc)
             if not new_project_modules_rd_is_documents_we.is_selected():
-                new_project_modules_rd_is_documents_we.click()
+                new_project_modules_rd_is_documents_we.click();
+            elif new_project_modules_rd_is_documents_we.is_selected():
+                new_project_modules_rd_is_documents_we.click();
 
         if files:
-            new_project_modules_rd_is_files_we = self.driver.find_element_by_id(
-                self.new_project_modules_rd_is_files_loc)
             if not new_project_modules_rd_is_files_we.is_selected():
-                new_project_modules_rd_is_files_we.click()
+                new_project_modules_rd_is_files_we.click();
+            elif new_project_modules_rd_is_files_we.is_selected():
+                new_project_modules_rd_is_files_we.click();
 
         if wiki:
-            new_project_modules_rd_is_wiki_we = self.driver.find_element_by_id(self.new_project_modules_rd_is_wiki_loc)
             if not new_project_modules_rd_is_wiki_we.is_selected():
-                new_project_modules_rd_is_wiki_we.click()
+                new_project_modules_rd_is_wiki_we.click();
+            elif new_project_modules_rd_is_wiki_we.is_selected():
+                new_project_modules_rd_is_wiki_we.click();
 
         if repository:
-            new_project_modules_rd_is_repositoy_we = self.driver.find_element_by_id(
-                self.new_project_modules_rd_is_repository_loc)
             if not new_project_modules_rd_is_repositoy_we.is_selected():
-                new_project_modules_rd_is_repositoy_we.click()
+                new_project_modules_rd_is_repositoy_we.click();
+            elif new_project_modules_rd_is_repositoy_we.is_selected():
+                new_project_modules_rd_is_repositoy_we.click();
 
         if calendar:
-            new_project_modules_rd_is_calendar_we = self.driver.find_element_by_id(
-                self.new_project_modules_rd_is_calendar_loc)
             if not new_project_modules_rd_is_calendar_we.is_selected():
-                new_project_modules_rd_is_calendar_we.click()
+                new_project_modules_rd_is_calendar_we.click();
+            elif new_project_modules_rd_is_calendar_we.is_selected():
+                new_project_modules_rd_is_calendar_we.click();
 
         if gantt:
-            new_project_modules_rd_is_gantt_we = self.driver.find_element_by_id(
-                self.new_project_modules_rd_is_gantt_loc)
-            if not new_project_modules_rd_is_calendar_we.is_selected():
-                new_project_modules_rd_is_gantt_we.click()
+            if not new_project_modules_rd_is_gantt_we.is_selected():
+                new_project_modules_rd_is_gantt_we.click();
+            elif new_project_modules_rd_is_gantt_we.is_selected():
+                new_project_modules_rd_is_gantt_we.click();
 
+        sleep(20000)
         return self
 
     def create_project_and_continue(self):
