@@ -1,1 +1,4 @@
 /.idea
+/reports/failed_tests/*.*
+/reports/passed_tests/*.*
+/__pycache__

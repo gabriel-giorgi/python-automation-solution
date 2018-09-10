@@ -1,7 +1,8 @@
+import sys
 from selenium import webdriver
 import os
 import time
-
+from utils.config_handler import get_property_file_value
 head, tail = os.path.split(os.path.dirname(os.path.abspath(__file__)))
 CHROME_PATH = head + r"\LFS\drivers\chromedriver.exe"
 
@@ -10,8 +11,10 @@ def before_all(context):
     pass
 
 def before_feature(context, feature):
+    sys.path.append(head)
     context.chrome_path = CHROME_PATH
     context.feature_name = feature.name
+    context.redmine_url = get_property_file_value('URL')
 
 
 def before_scenario(context, scenario):
@@ -27,7 +30,6 @@ def after_scenario(context, scenario):
     path_failed_test = r'\reports\failed_tests\\'
 
     if context.failed:
-        print(head)
         ts = time.gmtime()
         time_stamp = time.strftime("%Y-%m-%d %H-%M-%S", ts)
         screenshot_path = head + path_failed_test + scenario.name.lower().replace(" ", "_").split("-")[0] + time_stamp.replace(" ", "") + file_extension
@@ -36,7 +38,6 @@ def after_scenario(context, scenario):
         ts = time.gmtime()
         time_stamp = time.strftime("%Y-%m-%d %H-%M-%S", ts)
         screenshot_path = head + path_passed_test + scenario.name.lower().replace(" ", "_").split("-")[0] + time_stamp.replace(" ", "") + file_extension
-        print(screenshot_path)
         context.driver.save_screenshot(screenshot_path)
     try:
         context.driver.quit()

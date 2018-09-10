@@ -1,10 +1,8 @@
-from time import sleep
-
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-
-from base_page import BasePage
 from selenium.webdriver.support import expected_conditions as EC
+
+from page_objects.base_page import BasePage
 
 
 class ProjectPage(BasePage):

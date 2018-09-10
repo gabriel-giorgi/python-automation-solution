@@ -1,16 +1,14 @@
 from faker import Faker
 fake = Faker()
 from behave import *
-import config_handler
-from config_handler import get_property_file_value
-from util import table_to_dict
-from login_page import LoginPage
+from utils.config_handler import get_property_file_value
+from utils.util import table_to_dict
+from page_objects.login_page import LoginPage
 use_step_matcher("re")
-redmine_url = config_handler.get_property_file_value('URL')
 
 @given("I'm logged in redmine homepage")
 def step_impl(context):
-    context.driver.get(redmine_url)
+    context.driver.get(context.redmine_url)
     context.login_po = LoginPage(context.driver)
     user = get_property_file_value("user")
     password = get_property_file_value("password")

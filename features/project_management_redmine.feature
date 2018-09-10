@@ -1,8 +1,8 @@
 # Created by ggiorgi at 4/7/2018
 Feature: Project Management
   # Enter feature description here
-  @Broken
-  Scenario:
+  @Working
+  Scenario: Create new project
     Given I'm logged in redmine homepage
     When I go to project module
     And create a new project with following fields

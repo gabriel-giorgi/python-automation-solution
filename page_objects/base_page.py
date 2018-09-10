@@ -1,7 +1,5 @@
 from selenium.webdriver.support.ui import WebDriverWait
-from driver_factory import get_driver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
+
 
 class BasePage():
 

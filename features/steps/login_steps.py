@@ -1,15 +1,9 @@
 from behave import *
-import time
-
-import config_handler
-from login_page import LoginPage
-
-redmine_url = config_handler.get_property_file_value('URL')
-
+from page_objects.login_page import LoginPage
 
 @given(u'I connect to redmine')
 def step_impl(context):
-    context.driver.get(redmine_url)
+    context.driver.get(context.redmine_url)
 
 
 @when(u'I enter my username "{user}" and password "{password}"')

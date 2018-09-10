@@ -1,8 +1,9 @@
-import time
 from selenium.webdriver.common.by import By
-from base_page import BasePage
 from selenium.webdriver.support import expected_conditions as EC
-from home_page import HomePage
+
+from page_objects.base_page import BasePage
+from page_objects.home_page import HomePage
+
 
 class LoginPage(BasePage):
 

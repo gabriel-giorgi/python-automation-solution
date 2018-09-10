@@ -1,9 +1,8 @@
-from base_page import BasePage
-from project_page import ProjectPage
+from page_objects.base_page import BasePage
+from page_objects.project_page import ProjectPage
 
 
 class HomePage(BasePage):
-    #class
     project_loc = "projects"
 
     def __init__(self, driver):
