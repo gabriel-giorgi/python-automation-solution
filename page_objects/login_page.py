@@ -8,6 +8,7 @@ from page_objects.home_page import HomePage
 class LoginPage(BasePage):
 
     # XPATH
+    NEW_PROJECT_LOC = ""
     new_project_loc = "//a[ @ href = '/redmine/projects/new']"
     save_project_btn_loc = "//input[@value = 'Save']";
     list_projects_loc = "//a[@class= 'project root leaf ']";
@@ -45,7 +46,7 @@ class LoginPage(BasePage):
 
     def login_with(self, username, password):
         self.wait.until(EC.presence_of_element_located((By.CLASS_NAME, self.sign_in_loc)))
-        sign_in_link_we = self.driver.find_element_by_class_name(self.sign_in_loc)
+        sign_in_link_we = self.find(By.CLASS_NAME ,self.sign_in_loc)
         sign_in_link_we.click()
 
         self.wait.until(EC.presence_of_element_located((By.ID, self.user_loc)))

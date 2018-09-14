@@ -11,6 +11,7 @@ def before_all(context):
     pass
 
 def before_feature(context, feature):
+    head, tail = os.path.split(os.path.dirname(os.path.abspath(__file__)))
     sys.path.append(head)
     context.chrome_path = CHROME_PATH
     context.feature_name = feature.name
