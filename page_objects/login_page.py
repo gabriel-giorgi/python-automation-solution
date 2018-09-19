@@ -45,18 +45,10 @@ class LoginPage(BasePage):
         super().__init__(driver)
 
     def login_with(self, username, password):
-        self.wait.until(EC.presence_of_element_located((By.CLASS_NAME, self.sign_in_loc)))
-        sign_in_link_we = self.find(By.CLASS_NAME ,self.sign_in_loc)
-        sign_in_link_we.click()
-
-        self.wait.until(EC.presence_of_element_located((By.ID, self.user_loc)))
-
-        user_txt_we = self.driver.find_element_by_id(self.user_loc)
-        user_txt_we.send_keys(username)
-
-        password_txt_we = self.driver.find_element_by_id(self.password_loc)
-        password_txt_we.send_keys(password)
-
+        self.click_on_element(By.CLASS_NAME, self.sign_in_loc)
+        self.enter_text(By.ID, self.user_loc, username)
+        self.enter_text(By.ID, self.password_loc, password)
+        self.click_on_element(By.NAME, self.)
         login_bt_we = self.driver.find_element_by_name(self.login_locator)
         login_bt_we.click()
 

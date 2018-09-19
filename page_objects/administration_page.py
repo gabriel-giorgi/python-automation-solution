@@ -16,7 +16,7 @@ class AdministrationPage(BasePage):
 
     def go_to_projects(self):
         self.wait.until(EC.presence_of_element_located((By.XPATH, self.PROJECTS_LNK)))
-        we_project_lnk = self.find(By.XPATH, self.PROJECTS_LNK)
+        we_project_lnk = self.click_on_element(By.XPATH, self.PROJECTS_LNK)
         we_project_lnk.click()
 
     def delete_project(self, project_name):
