@@ -15,19 +15,15 @@ class AdministrationPage(BasePage):
     PROJECT_LOC = "projects"
 
     def go_to_projects(self):
-        self.wait.until(EC.presence_of_element_located((By.XPATH, self.PROJECTS_LNK)))
-        we_project_lnk = self.click_on_element(By.XPATH, self.PROJECTS_LNK)
-        we_project_lnk.click()
+        self.click_on_element(By.XPATH, self.PROJECTS_LNK)
 
     def delete_project(self, project_name):
-        we_delete_icon = self.driver.find_element_by_xpath(self.DELETE_ICON_LOC.replace('replaceme',project_name.lower().replace(" ", "-")))
-        we_delete_icon.click()
-        we_confirm_delete = self.driver.find_element_by_id(self.CONFIRM_DELETE_RD)
-        we_confirm_delete.click()
-        self.driver.find_element_by_name(self.CONFIRM_DELETE_BTN).click()
+        delete_icon_locator = self.DELETE_ICON_LOC.replace('replaceme', project_name.lower().replace(" ", "-"))
+        self.click_on_element(By.XPATH, delete_icon_locator)
+        self.click_on_element(By.ID, self.CONFIRM_DELETE_RD)
+        self.click_on_element(By.NAME, self.CONFIRM_DELETE_BTN)
 
     def go_to_projects_module(self):
-        project_lnk_we = self.driver.find_element_by_class_name(self.PROJECT_LOC)
-        project_lnk_we.click()
+        self.click_on_element(By.CLASS_NAME, self.PROJECT_LOC)
         return ProjectPage(self.driver)
 

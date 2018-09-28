@@ -43,36 +43,31 @@ class ProjectPage(BasePage):
         super().__init__(driver)
 
     def go_to_create_new_project_form(self):
-        self.wait.until(EC.presence_of_element_located((By.XPATH, self.new_project_loc)))
-        new_project_we = self.driver.find_element_by_xpath(self.new_project_loc)
-        new_project_we.click();
+        self.click_on_element(By.XPATH, self.new_project_loc)
         return self
 
     def fill_project_name(self, projectname):
-        self.wait.until(EC.presence_of_element_located((By.ID, self.project_name_txt_loc)))
-        project_name_txt_we = self.driver.find_element_by_id(self.project_name_txt_loc)
-        project_name_txt_we.send_keys(projectname)
+        self.enter_text(By.ID,  self.project_name_txt_loc, projectname)
         return self
 
     def set_project_modules(self, issue_tracking, time_tracking, news, documents, files,
                             wiki, repository, calendar, gantt):
-        new_project_modules_rd_is_issue_tracking_we = self.driver.find_element_by_id(
-            self.new_project_modules_rd_is_issue_tracking_loc)
-        new_project_modules_rd_is_time_tracking_we = self.driver.find_element_by_id(
-            self.new_project_modules_rd_is_time_tracking_loc)
-        new_project_modules_rd_is_news_we = self.driver.find_element_by_id(self.new_project_modules_rd_is_news_loc)
-        new_project_modules_rd_is_documents_we = self.driver.find_element_by_id(
-            self.new_project_modules_rd_is_documents_loc)
-        new_project_modules_rd_is_files_we = self.driver.find_element_by_id(
-            self.new_project_modules_rd_is_files_loc)
-        new_project_modules_rd_is_wiki_we = self.driver.find_element_by_id(self.new_project_modules_rd_is_wiki_loc)
-        new_project_modules_rd_is_repositoy_we = self.driver.find_element_by_id(
-            self.new_project_modules_rd_is_repository_loc)
-        new_project_modules_rd_is_calendar_we = self.driver.find_element_by_id(
-            self.new_project_modules_rd_is_calendar_loc)
-        new_project_modules_rd_is_gantt_we = self.driver.find_element_by_id(
-            self.new_project_modules_rd_is_gantt_loc)
-
+        new_project_modules_rd_is_issue_tracking_we = self.find(By.ID,
+                                                                self.new_project_modules_rd_is_issue_tracking_loc)
+        new_project_modules_rd_is_time_tracking_we = self.find(By.ID,
+                                                               self.new_project_modules_rd_is_time_tracking_loc)
+        new_project_modules_rd_is_news_we = self.find(By.ID, self.new_project_modules_rd_is_news_loc)
+        new_project_modules_rd_is_documents_we = self.find(By.ID,
+                                                           self.new_project_modules_rd_is_documents_loc)
+        new_project_modules_rd_is_files_we = self.find(By.ID,
+                                                       self.new_project_modules_rd_is_files_loc)
+        new_project_modules_rd_is_wiki_we = self.find(By.ID, self.new_project_modules_rd_is_wiki_loc)
+        new_project_modules_rd_is_repositoy_we = self.find(By.ID,
+                                                           self.new_project_modules_rd_is_repository_loc)
+        new_project_modules_rd_is_calendar_we = self.find(By.ID,
+                                                          self.new_project_modules_rd_is_calendar_loc)
+        new_project_modules_rd_is_gantt_we = self.find(By.ID,
+                                                       self.new_project_modules_rd_is_gantt_loc)
         if issue_tracking:
             if not new_project_modules_rd_is_issue_tracking_we.is_selected():
                 new_project_modules_rd_is_issue_tracking_we.click();

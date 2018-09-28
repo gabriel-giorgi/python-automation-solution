@@ -9,5 +9,5 @@ When I enter my username "<user>" and password "<password>"
 Then I should see my username "<user>" logged in the homepage
 Examples:
   |user    |password|
-  |Admin   |River123456|
+  |Admin   |River12345|
 

@@ -1,4 +1,4 @@
 [config]
 URL = http://localhost/redmine/
 user = Admin
-password = River123456
+password = River12345
